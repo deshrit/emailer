@@ -1,7 +1,8 @@
 # emailer
 django and celery and redis and flower asynchronous task queue - sending emails.
 
-![image](https://github.com/deshrit/emailer/assets/59757711/6b001f31-7b1c-47bc-b87a-730af58fc3d8)
+![image](https://github.com/deshrit/emailer/assets/59757711/2ad4615b-8ba0-44b9-bf66-cd61800b60e5)
+
 
 # To run locally
 ### 1. Create `src/.env` file
