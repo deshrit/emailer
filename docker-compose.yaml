@@ -23,3 +23,14 @@ services:
     depends_on:
       - redis
     command: celery -A core worker -l INFO
+
+  flower:
+    build: .
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/
+    depends_on:
+      - redis
+      - celery
+    ports:
+      - 7007:7007
+    command: celery -A core flower --address=0.0.0.0 --port=7007
