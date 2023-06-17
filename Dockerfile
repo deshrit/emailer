@@ -19,3 +19,5 @@ COPY . .
 USER emailer
 
 WORKDIR /emailer/src
+
+# CMD [ "python", "manage.py", "runserver", "0.0.0.0:8008" ]
