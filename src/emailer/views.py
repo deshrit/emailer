@@ -20,7 +20,7 @@ def index(request):
             messages.add_message(
                 request, 
                 messages.SUCCESS, 
-                "Email sent to queue.",
+                f"Email sent to queue to {form.cleaned_data['receiver']}.",
                 fail_silently=True,
             )
             return redirect('index')
