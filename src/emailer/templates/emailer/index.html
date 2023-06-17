@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emailer</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container col-sm-4">
+    <h1 class="bg-primary rounded text-center text-white p-1">Emailer</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        {% if form.errors %}
+            <div class="alert alert-danger p-1">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        {{ error }}<br>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        {% for field in form %}
+            <div class="my-2 form-group">
+                {{ field }}
+            </div>
+        {% endfor %}
+
+        <input class="w-100 btn btn-success" type="submit" value="send email">
+    </form>
+</div>
+
+<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
